@@ -119,3 +119,4 @@ Route::get('users/insert',function(){
 
 Route::get('post1/add','PostController@add');
 Route::get('post1/show','PostController@show');
+Route::get('post1/update/{id}','PostController@update');
