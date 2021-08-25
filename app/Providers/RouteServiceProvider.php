@@ -30,7 +30,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // tạo mẫu điều kiện cho id , tương tự với slug
+        Route::pattern('id','[0-9]+');
+       // Route::pattern('slug','[0-9a-zA-Z-_]+');
 
         parent::boot();
     }
