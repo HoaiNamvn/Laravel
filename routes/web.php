@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\UsersController;
@@ -116,7 +116,22 @@ Route::get('users/insert',function(){
    DB::table('users') ->insert(
        ['name' =>'DOAN THI THUY CHI','email'=>'doanthithuychi021@gmail.com','password'=>bcrypt('chi123')]);
 });
+#bai tap controller
+// Route::get('post1/add','PostController@add');
+// Route::get('post1/show','PostController@show');
+// Route::get('post1/update/{id}','PostController@update');
+// Route::get('post1/delete/{id}','PostController@delete');
 
-Route::get('post1/add','PostController@add');
-Route::get('post1/show','PostController@show');
-Route::get('post1/update/{id}','PostController@update');
+# bai tap query builder
+Route::get('Admin/product/add','AdminProductController@add');
+Route::get('Admin/product/show','AdminProductController@show');
+Route::get('Admin/product/update/{id}','AdminProductController@update');
+Route::get('Admin/product/delete/{id}','AdminProductController@delete');
+
+#ELOQUENT ORM 
+// Route::get('post/read',function(){
+//     $posts =Post::all();
+//     return $posts;
+// });
+  #------ in controller
+  Route::get('posts/read','PostController@read');
