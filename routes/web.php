@@ -135,3 +135,6 @@ Route::get('Admin/product/delete/{id}','AdminProductController@delete');
 // });
   #------ in controller
   Route::get('posts/read','PostController@read');
+  Route::get('posts/add','PostController@add');
+  Route::get('posts/update/{id}','PostController@update');
+  Route::get('posts/delete/{id}','PostController@delete');

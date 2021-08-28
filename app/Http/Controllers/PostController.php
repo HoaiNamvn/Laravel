@@ -11,9 +11,24 @@ class PostController extends Controller
     //
     function add()
     {
-        DB::table('posts')->insert(
-            ['title' => 'Post5', 'content' => 'content5', 'user_id' => 4, 'votes' => 50]
-        );
+        #khai báo giá trị cho các trường field đã khai báotrên database 
+        // DB::table('posts')->insert(
+        //     ['title' => 'Post5', 'content' => 'content5', 'user_id' => 4, 'votes' => 50]
+        // );
+        // $post = new Post;
+
+        // $post -> title = "laravel 1";
+        // $post -> content = "content laravel 1";
+        // $post ->user_id = 1;
+        // $post -> votes = 60;
+
+        // $post ->save();
+        Post::create([
+            'title' => 'Create',
+            'content' => 'content create',
+            'user_id' => 1,
+            'votes' => 30
+        ]);
     }
     function show()
     {
@@ -88,20 +103,46 @@ class PostController extends Controller
     }
     function update($id)
     {
-        DB::table('posts')
-            ->where('id', $id)
+        #query builder
+        // DB::table('posts')
+        //     ->where('id', $id)
+        //     ->update([
+        //         'title' => 'Macbook 2021',
+        //         'votes' => 30,
+        //         'content' => 'event open macbook 2021'
+        //     ]);
+        // echo "Đã cập nhật thành công ";
+        #ELOQUENT ORM 
+        // $post =  Post::find($id);
+        // $post -> title = "laravel 2";
+        // $post -> content = "content laravel 2";
+        // $post ->user_id = 4;
+        // $post -> votes = 90;
+
+        // $post ->save();
+        $post = Post::where('id', $id)
             ->update([
-                'title' => 'Macbook 2021',
-                'votes' => 30,
-                'content' => 'event open macbook 2021'
+                'title' => 'Update',
+                'content' => 'content Update',
+                'user_id' => 4,
+                'votes' => 70
             ]);
-        echo "Đã cập nhật thành công ";
     }
     function delete($id)
-    {
-        DB::table('posts')
-            ->where('id', $id)
-            ->delete();
+    { #query builder
+        // DB::table('posts')
+        //     ->where('id', $id)
+        //     ->delete();
+        #xoa bang ElOQUENT ORM delete()
+        // $post = Post::find($id);
+        // $post ->delete();
+        # cách xóa thường dùng , xóa không theo id mặc định 
+        // Post::where('user_id',$id)
+        // ->delete();
+        # xóa theo destroy 
+        // Post::destroy($id);
+        # xóa bản ghi theo destroy có input là 1 array 
+        return Post::destroy([1, 5]);  // trả về số bản ghi đẫ được xóa 
     }
     function read()
     {
@@ -112,8 +153,25 @@ class PostController extends Controller
         // echo "</pre>";
         //$posts = Post::where('title','like','%iphone%') -> get();
         #lấy 1 bản ghi theo điều kiện 
-        $post = Post::where('user_id', 4)->first();
-        return $post->content;
+        // $post = Post::where('user_id', 4)->first();
+        // return $post->content;
         #tìm bản ghi theo id 
+        // $post = Post::find(9);
+        // return $post ->id;
+        #lấy1 danh sách bản ghi  theo id 
+        // $posts = Post::find([1,5,10]);
+        // return $posts ;
+        # groupBy theo user_id 
+        // $posts = Post::selectRaw('count(id) as number_post, user_id')
+        //     ->groupBy('user_id')
+        //     ->orderBy('number_post',) //desc
+        //     ->get();
+        // return $posts;
+        #limit
+        $posts = Post::limit(2)
+            ->offset(3)
+            ->get();
+
+        return $posts;
     }
 }
