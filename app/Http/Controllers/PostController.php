@@ -182,6 +182,7 @@ class PostController extends Controller
             ->get();
         return $posts;
     }
+    # restore delete file -> value is  NO NULL
     function restore($id)
     {
         $posts = Post::onlyTrashed()
