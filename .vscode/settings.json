@@ -1,39 +1,38 @@
 {
-    "json.schemas": [
-    
-    ]
-}
-{
-"explorer.confirmDelete": false,
-"workbench.editor.enablePreview": false,
-"workbench.iconTheme": "material-icon-theme",
-"editor.wordWrap": "on",
-"files.insertFinalNewline": true,
-"files.trimFinalNewlines": true,
-"files.trimTrailingWhitespace": true,
-"[css]": {
-  "editor.tabSize": 2,
-  "editor.suggest.insertMode": "replace"
-},
-"[scss]": {
-  "editor.tabSize": 2,
-  "editor.suggest.insertMode": "replace"
-},
-"[php]": {
-  "editor.tabSize": 4
-},
-"cSpell.userWords": ["nalbase"],
-"editor.renderWhitespace": "boundary",
-"editor.minimap.enabled": false,
-"workbench.colorTheme": "GitHub Dark",
-"editor.formatOnSave": true,
-"cSpell.language": "en,en-US",
-"editor.tabSize": 2,
-"editor.formatOnPaste": true,
-"diffEditor.ignoreTrimWhitespace": false,
-"editor.fontSize": 10,
-"editor.defaultFormatter": "esbenp.prettier-vscode",
-"explorer.confirmDragAndDrop": false,
-"git.confirmSync": false,
-"window.zoomLevel": 2
+    "explorer.confirmDelete": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.wordWrap": "on",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[scss]": {
+        "editor.tabSize": 4,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[php]": {
+        "editor.tabSize": 4
+    },
+    "cSpell.userWords": ["nalbase"],
+    "editor.renderWhitespace": "boundary",
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "GitHub Dark",
+    "editor.formatOnSave": true,
+    "cSpell.language": "en,en-US",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontSize": 14,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "window.zoomLevel": 1,
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true
 }
