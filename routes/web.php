@@ -150,6 +150,7 @@ Route::get('Admin/product/delete/{id}', 'AdminProductController@delete');
 
 #FORM
 Route::get('post1/add', 'PostController@add');
+Route::get('post1/store', 'PostController@store');
 Route::get('user/reg', function () {
     return view('user.reg');
 });

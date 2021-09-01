@@ -10,14 +10,31 @@
 <body>
 <div class="container">
     <h1>thêm bài viết </h1>
-    {!! Form::open(['url' => 'post/store','method' =>'GET']) !!}
+    {{-- @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+             <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+
+    </div>
+    @endif --}}
+    {!! Form::open(['url' => 'post1/store','method' =>'GET']) !!}
        <div class="form-group">
            {{-- <input class="form-control" type="text" name="title" placeholder="tiêu đề "> --}}
            {!! Form::text('title', '', ['class'=>'form-control','placeholder'=>'tiêu đề']) !!}
+           @error('title')
+             <small class="form-text text-danger"> {{ $message }} </small>
+           @enderror
+
        </div>
        <div class="form-group">
             {{-- <textarea class="form-control" name="content" placeholder="Nội dung" id="" cols="30" rows="10" rows="10"></textarea> --}}
             {!! Form::textarea('content', '', ['class'=>'form-control']) !!}
+            @error('content')
+             <small class="form-text text-danger"> {{ $message }} </small>
+           @enderror
        </div>
       <div class="form-group">
            {{-- <input type="submit" name="sm-add" value="thêm"> --}}

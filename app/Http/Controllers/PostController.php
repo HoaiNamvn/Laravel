@@ -32,6 +32,14 @@ class PostController extends Controller
         // ]);
         return view('admin.post.create');
     }
+    function store(Request $request)  // lấy object
+    {
+        $request->validate([
+            'title' => 'required',  //yêu cầu
+            'content' => 'required'
+        ]);
+        return $request->input();
+    }
     function show()
     {
         // $posts = DB::table('posts') ->select('id','title','content') ->get();
