@@ -35,8 +35,13 @@ class PostController extends Controller
     function store(Request $request)  // lấy object
     {
         $request->validate([
-            'title' => 'required',  //yêu cầu
+            'title' => 'required|max:100',  //yêu cầu
             'content' => 'required'
+        ], [
+            'required' => 'trường :attribute không được hổ trợ '
+        ], [
+            'title' => 'Tiêu đề ',
+            'content' => 'Nội dung '
         ]);
         return $request->input();
     }
