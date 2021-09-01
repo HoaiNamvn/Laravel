@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,12 +24,13 @@ class PostController extends Controller
         // $post -> votes = 60;
 
         // $post ->save();
-        Post::create([
-            'title' => 'Create3',
-            'content' => 'content create 3',
-            'user_id' => 1,
-            'votes' => 97
-        ]);
+        // Post::create([
+        //     'title' => 'Create3',
+        //     'content' => 'content create 3',
+        //     'user_id' => 1,
+        //     'votes' => 97
+        // ]);
+        return view('admin.post.create');
     }
     function show()
     {
@@ -178,8 +180,17 @@ class PostController extends Controller
         //     ->get();
         // return $posts;
         #chỉ lấy những phần tử đã được xóa
-        $posts = Post::onlyTrashed()
-            ->get();
+        // $posts = Post::onlyTrashed()
+        //     ->get();
+        // return $posts;
+        // $post = Post::find(1)
+        //     ->FeaturedImages;
+        // return $post;
+        $user = Post::find(18)
+            ->user;
+        // return $user;
+        $posts = User::find(4)
+            ->posts;
         return $posts;
     }
     # restore delete file -> value is  NO NULL

@@ -45,8 +45,8 @@ Route::get('users/profile', function () {
 //có thể gắn điều kiện ở file routesivicePropider ở đó điều kiện đó sẽ áp dụng cho tất cả các file
 
 // ĐInh tuyến qua 1 view của hệ thống biểu
-Route::view('/welcome', 'welcome'); //duongdan,tenview
-Route::view('/post', 'post', ['id' => 20]);
+// Route::view('/welcome', 'welcome'); //duongdan,tenview
+// Route::view('/post', 'post', ['id' => 20]);
 
 //ĐInh tuyến qua controller
 //gõ lênh  php artisan make::controller NAME
@@ -139,9 +139,17 @@ Route::get('Admin/product/delete/{id}', 'AdminProductController@delete');
 //     return $posts;
 // });
 #------ in controller
-Route::get('posts/read', 'PostController@read');
-Route::get('posts/add', 'PostController@add');
-Route::get('posts/update/{id}', 'PostController@update');
-Route::get('posts/delete/{id}', 'PostController@delete');
-Route::get('posts/restore/{id}', 'PostController@restore');
-Route::get('posts/permanentlyDelete/{id}', 'PostController@permanentlyDelete');
+// Route::get('posts/read', 'PostController@read');
+// Route::get('posts/add', 'PostController@add');
+// Route::get('posts/update/{id}', 'PostController@update');
+// Route::get('posts/delete/{id}', 'PostController@delete');
+// Route::get('posts/restore/{id}', 'PostController@restore');
+// Route::get('posts/permanentlyDelete/{id}', 'PostController@permanentlyDelete');
+// Route::get('images/read', 'FeaturedImangesController@read');
+// Route::get('role/show', 'RoleController@show');
+
+#FORM
+Route::get('post1/add', 'PostController@add');
+Route::get('user/reg', function () {
+    return view('user.reg');
+});
