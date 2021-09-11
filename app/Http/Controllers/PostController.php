@@ -32,21 +32,64 @@ class PostController extends Controller
         // ]);
         return view('admin.post.create');
     }
-    function store(Request $request)  // lấy object
+    function store(Request $request)  // yêu cầu  lấy object
     {
-        $request->validate([
-            'title' => 'required|max:100',  //yêu cầu
-            'content' => 'required'
-        ], [
-            'required' => 'trường :attribute không được hổ trợ '
-        ], [
-            'title' => 'Tiêu đề ',
-            'content' => 'Nội dung '
-        ]);
-        return $request->input();
+        // kiểm duyêt data
+        $request->validate(
+            [
+                'title' => 'required|max:100',  //yêu cầu
+                'content' => 'required'
+            ],
+            [
+                'required' => 'Trường :attribute không được hổ trợ '
+            ],
+            [
+                'required' => ':attribute không được để trống ',
+                'min' => ':attribute có độ dài ít nhất :min ký tự ',
+                'max' => ':attribute có độ dài tối đa :max ký tự '
+            ],
+            [
+                'title' => 'Tiêu đề ',
+                'content' => 'Nội dung '
+            ]
+        );
+        $input = $request->all();
+        if ($request->hasFile('file')) {
+            echo " Có file ";
+            // get size file
+            $file = $request->file;
+            echo "<br>";
+            //get name file
+            echo $filename = $file->getClientOriginalName();
+            echo "<br>";
+            //gret extension
+            echo $file->getClientOriginalExtension();
+            echo "<br>";
+            // get size file size
+            echo $file->getSize();
+            echo "<br>";
+            // move file into server
+            // tham so 1 dia chi save file , tham so 2 ten cua file
+            $path =  $file->move('public/uploads', $file->getClientOriginalName());
+            $thumbnail = 'public/uploads/' . $filename;
+            $input['thumbnail'] = $thumbnail;
+        }
+        // thêm thông tin uesr_id
+        $input['user_id'] = 4;
+        //gọi create method trong model
+        Post::create($input);
+        //     return $request->input();
+        //chuyen huong qua mot url
+        // return redirect('post/show');
+        //chuyen huong kem theo flashing section
+        return redirect('post/show')->with('status', 'Thêm bài viết thành công !');
+        //chuyen huong qua mot route
+        // return redirect()->route('post.show');
     }
     function show()
+
     {
+        return redirect()->away('http://unitop.vn');
         // $posts = DB::table('posts') ->select('id','title','content') ->get();
         // foreach($posts as $post){
         //     echo $post->title."&nbsp";
@@ -108,13 +151,15 @@ class PostController extends Controller
         //     ->get();
 
         #limit
-        $posts = DB::table('posts')
-            ->offset(2)
-            ->limit(3)
-            ->get();
-        echo "<pre>";
-        print_r($posts);
-        echo "</pre>";
+        // $posts = DB::table('posts')
+        //     ->offset(2)
+        //     ->limit(3)
+        //     ->get();
+        // echo "<pre>";
+        // print_r($posts);
+        // echo "</pre>";
+        // $posts = Post::all();
+        // return view('admin.post.index', compact('posts'));
     }
     function update($id)
     {

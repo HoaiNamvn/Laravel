@@ -20,8 +20,12 @@
 
     </div>
     @endif --}}
-    {!! Form::open(['url' => 'post1/store','method' =>'GET']) !!}
-       <div class="form-group">
+    {!! Form::open(['url' => 'post1/store','method' =>'POST','files'=>true]) !!}
+
+<div class="row col-md-6 mx-auto">
+
+       <div class="form-group ">
+
            {{-- <input class="form-control" type="text" name="title" placeholder="tiêu đề "> --}}
            {!! Form::text('title', '', ['class'=>'form-control','placeholder'=>'tiêu đề']) !!}
            @error('title')
@@ -29,19 +33,22 @@
            @enderror
 
        </div>
-       <div class="form-group">
+       <div class="form-group ">
             {{-- <textarea class="form-control" name="content" placeholder="Nội dung" id="" cols="30" rows="10" rows="10"></textarea> --}}
             {!! Form::textarea('content', '', ['class'=>'form-control']) !!}
             @error('content')
              <small class="form-text text-danger"> {{ $message }} </small>
            @enderror
        </div>
+       <div class="form-group">
+           {!! Form::file('file', ['class'=>'form-control-file']) !!}
+       </div>
       <div class="form-group">
            {{-- <input type="submit" name="sm-add" value="thêm"> --}}
            {!! Form::submit('Thêm mới', ['name'=>'sm-add','class'=>'btn btn-dark']) !!}
       </div>
 
-
+</div>
     {!! Form::close() !!}
 </div>
 </body>

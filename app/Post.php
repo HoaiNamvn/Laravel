@@ -10,7 +10,8 @@ class Post extends Model
     use SoftDeletes;
     //
     // protected $table = 'table_name';
-    protected $fillable = ['title', 'content', 'user_id', 'votes'];
+    // xác định những trường sẽ được duyệt
+    protected $fillable = ['title', 'content', 'user_id', 'votes','thumbnail'];
     #tạo mối quan hệ giữa post và feature
 
     function FeaturedImages()
