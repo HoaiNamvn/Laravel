@@ -154,7 +154,7 @@ Route::post('post1/store', 'PostController@store');
 Route::get('user/reg', function () {
     return view('user.reg');
 });
-Route::get('post/show', 'Postcontroller@show')->name('post.show');
+Route::get('post/show', 'Postcontroller@show');
 Route::get('helper/url', 'HelperController@url');
 Route::get('helper/string', 'HelperController@string');
 Route::get('session/add', 'SessionController@add');

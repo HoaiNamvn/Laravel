@@ -13,7 +13,8 @@ class SessionController extends Controller
         // $request->session()->put('login', true);
         # Lưu thông qua helper session
         session(['username' => 'hoainam1']);
-        return redirect('session/show');
+
+        // return redirect('session/show');
     }
     function show(Request $request)
     { //2.  Lấy toàn bộ session

@@ -27,6 +27,7 @@
 
 
 </ul>
+{{ $posts->links() }}
 
 </body>
 </html>

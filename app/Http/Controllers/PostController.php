@@ -88,8 +88,8 @@ class PostController extends Controller
     }
     function show()
 
-    {
-        return redirect()->away('http://unitop.vn');
+    {  #return a other page
+        // return redirect()->away('http://unitop.vn');
         // $posts = DB::table('posts') ->select('id','title','content') ->get();
         // foreach($posts as $post){
         //     echo $post->title."&nbsp";
@@ -160,6 +160,9 @@ class PostController extends Controller
         // echo "</pre>";
         // $posts = Post::all();
         // return view('admin.post.index', compact('posts'));
+        #pagination with query Builder
+        $posts = DB::table('posts')->paginate(4);
+        return view('admin.post.index', compact('posts'));
     }
     function update($id)
     {
