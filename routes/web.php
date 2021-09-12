@@ -163,3 +163,6 @@ Route::get('session/show', 'SessionController@show');
 Route::get('session/delete', 'SessionController@delete');
 Route::get('cookie/set', 'CookieController@set');
 Route::get('cookie/get', 'CookieController@get');
+
+
+Route::get('demo/sendmail', 'DemoController@sendmail');
