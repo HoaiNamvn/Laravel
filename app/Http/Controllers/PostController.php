@@ -161,7 +161,13 @@ class PostController extends Controller
         // $posts = Post::all();
         // return view('admin.post.index', compact('posts'));
         #pagination with query Builder
-        $posts = DB::table('posts')->paginate(4);
+        // $posts = DB::table('posts')->paginate(4);
+        // return view('admin.post.index', compact('posts'));
+        #pagination by ORM
+        // $posts = Post::paginate(3);
+        // return view('admin.post.index', compact('posts'));
+        #simple pagination
+        $posts = Post::simplePaginate(3);
         return view('admin.post.index', compact('posts'));
     }
     function update($id)
