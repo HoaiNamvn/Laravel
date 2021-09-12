@@ -27,7 +27,7 @@
 
 
 </ul>
-{{ $posts->links() }}
+{{ $posts->appends(['sort'=>'votes'])->links() }}
 
 </body>
 </html>
