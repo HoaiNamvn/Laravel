@@ -167,7 +167,10 @@ class PostController extends Controller
         // $posts = Post::paginate(3);
         // return view('admin.post.index', compact('posts'));
         #simple pagination
-        $posts = Post::simplePaginate(3);
+        // $posts = Post::simplePaginate(3);
+        // return view('admin.post.index', compact('posts'));
+        #sắp xếp hiện thị trang  theo id giảm dần , tăng thì bỏ desc
+        $posts = Post::where('id', '>', 5)->orderby('id', 'desc')->Paginate(3);
         return view('admin.post.index', compact('posts'));
     }
     function update($id)
