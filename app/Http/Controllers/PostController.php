@@ -30,7 +30,7 @@ class PostController extends Controller
         //     'user_id' => 1,
         //     'votes' => 97
         // ]);
-        return view('admin.post.create');
+        return view('post.create');
     }
     function store(Request $request)  // yêu cầu  lấy object
     {
@@ -173,7 +173,7 @@ class PostController extends Controller
         $posts = Post::where('votes', '>', 12)->orderby('votes', 'asc')->Paginate(3);
         // $posts->withPath('demo/show');
 
-        return view('admin.post.index', compact('posts'));
+        return view('post.index', compact('posts'));
         # chỉnh URL qua Url Tự chọn :line 174 vì bỏ đây sẽ bị bỏ qua vì sau return
     }
     function update($id)

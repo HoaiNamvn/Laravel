@@ -16,9 +16,7 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('users/profile', function () {
     return route('profile');  //trae lại đường dẫn dài  qua function route
@@ -166,3 +164,16 @@ Route::get('cookie/get', 'CookieController@get');
 
 
 Route::get('demo/sendmail', 'DemoController@sendmail');
+
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+
+# Cart file
+Route::get('/', 'Product1Controller@show');
+
+Route::get('cart/show', 'CartController@show');
+
+#add in cart
+Route::get('cart/add/{id}', 'CartController@add')->name('cart.add');
